@@ -12,32 +12,128 @@
             href="./src/assets/img/favicon-32x32.png"
         />
 
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="./src/reset.css" />
         <link rel="stylesheet" href="./dist/style.css" />
 
         <title>Frontend Mentor | Tip calculator app</title>
-
-        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-        <style>
-            .attribution {
-                font-size: 11px;
-                text-align: center;
-            }
-            .attribution a {
-                color: hsl(228, 45%, 44%);
-            }
-        </style>
     </head>
     <body>
-        Bill Select Tip % 5% 10% 15% 25% 50% Custom Number of People Tip Amount
-        / person Total / person Reset
-
-        <div class="attribution">
-            Challenge by
-            <a
-                href="https://www.frontendmentor.io?ref=challenge"
-                target="_blank"
-                >Frontend Mentor</a
-            >. Coded by <a href="#">Your Name Here</a>.
+        <div class="page-wrapper">
+            <div class="calc-wrapper">
+                <div class="logo">
+                    <img
+                        src="./src/assets/img/logo.svg"
+                        alt="Splitter"
+                        class="logo__img"
+                    />
+                </div>
+                <div class="calc-input-wrapper">
+                    <form class="calc-input">
+                        <label class="calc-input__bill-label" for="bill"
+                            >Bill</label
+                        >
+                        <input
+                            type="number"
+                            class="calc-input__bill-input"
+                            id="bill"
+                            name="bill"
+                            min="1"
+                            max="10000"
+                        />
+                        <fieldset class="calc-input__tip-percentage">
+                            <legend class="calc-input__select">Select Tip %</legend>
+                            <input
+                                class="calc-input__selection"
+                                type="radio"
+                                name="tip-percentage"
+                                value="5"
+                            />5%</input>
+                            <input
+                                class="calc-input__selection"
+                                type="radio"
+                                name="tip-percentage"
+                                value="10"
+                            />10%</input>
+                            <input
+                                class="calc-input__selection"
+                                type="radio"
+                                name="tip-percentage"
+                                value="15"
+                            />15%</input>
+                            <input
+                                class="calc-input__selection"
+                                type="radio"
+                                name="tip-percentage"
+                                value="20"
+                            />20%</input>
+                            <input
+                                class="calc-input__selection"
+                                type="radio"
+                                name="tip-percentage"
+                                value="25"
+                            />25%</input>
+                            <input
+                                class="calc-input__selection"
+                                type="radio"
+                                name="tip-percentage"
+                            />Custom</input>
+                        </fieldset>
+                        <label class="calc-input__people-label" for="people"
+                            >Number of People</label
+                        >
+                        <input
+                            type="number"
+                            class="calc-input__people-input"
+                            id="people"
+                            name="people"
+                            min="1"
+                            max="50"
+                        />
+                    </form>
+                </div>
+    
+                <div class="calc-output-wrapper">
+                    <div class="calc-output__tip">
+                        <div class="calc-output__label">
+                            <p class="calc-output__label-1">
+                                Tip Amount
+                            </p>
+                            <p class="calc-output__label-2">
+                                / person
+                            </p>
+                        </div>
+                        <p class="calc-output__amount">$0</p>
+                    </div>
+                    <div class="calc-output__total">
+                        <div class="calc-output__label">
+                            <p class="calc-output__label-1">
+                                Total
+                            </p>
+                            <p class="calc-output__label-2">
+                                / person
+                            </p>
+                        </div>
+                        <p class="calc-output__total-amount">$0</p>
+                    </div>
+                    <button class="calc-output__btn-reset btn">Reset</button>
+                </div>
+            </div>
+    
+            <div class="attribution">
+                Challenge by
+                <a
+                    href="https://www.frontendmentor.io/profile/axseinga"
+                    target="_blank"
+                    >Frontend Mentor</a
+                >. Coded by <a href="#">Axseinga</a>.
+            </div>
         </div>
 
         <script src="./src/js/index.js"></script>
