@@ -1,4 +1,5 @@
 @use "variables" as v;
+@use "mixins" as m;
 
 .btn {
     &,
@@ -23,6 +24,12 @@
         &:visited {
             width: 150px;
             background-color: v.$color-primary-dark;
+
+            @include m.respond(tablet) {
+                width: 100px;
+                height: 40px;
+                font-size: 2rem;
+            }
         }
     }
 

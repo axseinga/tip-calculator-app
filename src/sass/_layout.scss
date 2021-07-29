@@ -1,4 +1,5 @@
 @use "variables" as v;
+@use "mixins" as m;
 
 .page-wrapper {
     width: 100%;
@@ -6,6 +7,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include m.respond(tablet) {
+        height: 95vh;
+        align-content: center;
+    }
 }
 
 .calc-wrapper {
@@ -16,22 +22,38 @@
     background-color: v.$color-white;
     border-radius: 20px;
     padding: 3rem;
+
+    @include m.respond(tablet) {
+        flex-direction: row;
+        width: 900px;
+        height: 450px;
+    }
 }
 
 .logo {
     margin: 3rem;
+
+    @include m.respond(tablet) {
+        margin-bottom: 9rem;
+    }
 }
 
 .calc-input-wrapper {
     width: 100%;
+
+    @include m.respond(tablet) {
+        margin: 1rem 1.5rem;
+    }
 }
 
 .calc-input {
     &__label {
         color: v.$color-primary-dark;
-    }
 
-    &__label-bill {
+        @include m.respond(tablet) {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
     }
 
     &__input {
@@ -39,12 +61,17 @@
         height: 30px;
         background-color: v.$color-light-greyish-cyan-2;
         border: none;
+        border-radius: 5px;
         margin: 1rem 0;
         text-align: right;
         font-size: 2.5rem;
         color: v.$color-primary-dark;
         font-family: v.$font-primary;
         padding: 2rem 1rem;
+
+        @include m.respond(tablet) {
+            margin-top: 0.5rem;
+        }
 
         &:focus {
             outline-color: v.$color-dark-greyish-cyan-1;
@@ -53,7 +80,7 @@
         &::placeholder {
             color: v.$color-primary-dark;
             text-align: right;
-            opacity: 0.7;
+            opacity: 0.5;
             font-weight: 700;
         }
     }
@@ -70,6 +97,10 @@
         gap: 1rem;
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;
+
+        @include m.respond(tablet) {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 
     &__selection {
@@ -85,6 +116,13 @@
         text-align: center;
         font-family: v.$font-primary;
         color: v.$color-primary-dark;
+        font-weight: 700;
+
+        @include m.respond(tablet) {
+            width: 100px;
+            height: 40px;
+            font-size: 2rem;
+        }
 
         &::placeholder {
             color: v.$color-primary-dark;
@@ -109,6 +147,15 @@ input[type="radio"]:hover + label {
     border-radius: 15px;
     margin: 2rem 0;
     padding: 2rem;
+
+    @include m.respond(tablet) {
+        height: 100%;
+        margin: 1rem 1.5rem;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
 
 .calc-output {
@@ -117,10 +164,19 @@ input[type="radio"]:hover + label {
         display: flex;
         justify-content: space-between;
         margin: 1rem 0;
+
+        @include m.respond(tablet) {
+            margin: 1.5rem 0;
+        }
     }
 
     &__label-1 {
         color: v.$color-white;
+
+        @include m.respond(tablet) {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
     }
 
     &__label-2 {
@@ -128,12 +184,20 @@ input[type="radio"]:hover + label {
         font-size: 1.2rem;
         margin: 0.5rem 0;
         font-weight: 700;
+
+        @include m.respond(tablet) {
+            margin: 0.2rem 0;
+        }
     }
 
     &__amount {
         color: v.$color-primary;
         font-size: 3.2rem;
         font-weight: 700;
+
+        @include m.respond(tablet) {
+            font-size: 3.6rem;
+        }
     }
 
     &__reset {

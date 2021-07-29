@@ -46,7 +46,7 @@
                             name="bill"
                             min="1"
                             max="10000"
-                            placeholder="0,00"
+                            placeholder="0"
                         />
                         <fieldset class="calc-input__tip-percentage">
                             <legend class="calc-input__label calc-input__select">Select Tip %</legend>
@@ -92,7 +92,7 @@
                                     /></input>
                                     <label for="tip-percentage-25" class="btn btn--radio calc-input__selection-btn">25%</label>
                                     <input type="number" class="btn calc-input__textarea btn--custom" id="input-custom" name="input-custom" min="1"
-                                    max="100" placeholder="Custom">
+                                    max="100" placeholder=" Custom">
                                 
                                 </div>
                         </fieldset>
@@ -111,27 +111,29 @@
                 </div>
     
                 <div class="calc-output-wrapper">
-                    <div class="calc-output__tip">
-                        <div class="calc-output__label">
-                            <p class="calc-output__label-1">
-                                Tip Amount
-                            </p>
-                            <p class="calc-output__label-2">
-                                / person
-                            </p>
+                    <div class="calc-output">
+                        <div class="calc-output__tip">
+                            <div class="calc-output__label">
+                                <p class="calc-output__label-1">
+                                    Tip Amount
+                                </p>
+                                <p class="calc-output__label-2">
+                                    / person
+                                </p>
+                            </div>
+                            <p class="calc-output__amount">$0.00</p>
                         </div>
-                        <p class="calc-output__amount">$0</p>
-                    </div>
-                    <div class="calc-output__total">
-                        <div class="calc-output__label">
-                            <p class="calc-output__label-1">
-                                Total
-                            </p>
-                            <p class="calc-output__label-2">
-                                / person
-                            </p>
+                        <div class="calc-output__total">
+                            <div class="calc-output__label">
+                                <p class="calc-output__label-1">
+                                    Total
+                                </p>
+                                <p class="calc-output__label-2">
+                                    / person
+                                </p>
+                            </div>
+                            <p class="calc-output__amount">$0.00</p>
                         </div>
-                        <p class="calc-output__amount">$0</p>
                     </div>
                     <button class="btn btn--reset calc-output__reset">Reset</button>
                 </div>
