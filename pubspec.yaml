@@ -1,0 +1,5 @@
+name: tip_calculator_app_main
+dev_dependencies:
+    sass: ^1.36.0
+environment:
+    sdk: ">=2.10.0 <3.0.0"
