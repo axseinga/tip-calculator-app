@@ -1,1 +1,14 @@
-$color-primary: pink;
+// Colors //
+
+$color-primary: hsl(172, 67%, 45%);
+$color-primary-dark: hsl(183, 100%, 15%);
+$color-dark-greyish-cyan-1: hsl(186, 14%, 43%);
+$color-dark-greyish-cyan-2: hsl(184, 14%, 56%);
+$color-light-greyish-cyan-1: hsl(185, 41%, 84%);
+$color-light-greyish-cyan-2: hsl(189, 41%, 97%);
+$color-white: hsl(0, 0%, 100%);
+$color-footer-link: hsl(228, 45%, 44%);
+
+// Fonts //
+
+$font-primary: "Space Mono", monospace; // 400, 700

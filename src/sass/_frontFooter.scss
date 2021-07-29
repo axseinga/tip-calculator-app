@@ -1,0 +1,11 @@
+@use 'variables' as v;
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.attribution a {
+    color: v.$color-footer-link;
+}

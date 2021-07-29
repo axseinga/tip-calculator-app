@@ -1,0 +1,62 @@
+@use "variables" as v;
+
+.btn {
+    &,
+    &:link,
+    &:visited {
+        display: inline-block;
+        height: 50px;
+        color: v.$color-white;
+        border-radius: 8px;
+        font-size: 2.5rem;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.5s ease;
+    }
+
+    &--radio {
+        &,
+        &:link,
+        &:visited {
+            width: 150px;
+            background-color: v.$color-primary-dark;
+        }
+    }
+
+    &--custom {
+        &,
+        &:link,
+        &:visited {
+            background-color: v.$color-light-greyish-cyan-2;
+            color: v.$color-primary-dark;
+        }
+    }
+
+    &--reset {
+        &,
+        &:link,
+        &:visited {
+            width: 100%;
+            height: 40px;
+            background-color: v.$color-primary;
+            color: v.$color-primary-dark;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            font-family: inherit;
+            font-weight: 700;
+            letter-spacing: 0.1rem;
+            border: none;
+        }
+
+        &:hover,
+        &:active {
+            color: v.$color-primary;
+            background-color: transparent;
+            box-shadow: 0 0 10px 0 v.$color-primary inset,
+                0 0 10px 4px v.$color-primary;
+        }
+    }
+}

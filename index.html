@@ -19,84 +19,95 @@
             rel="stylesheet"
         />
 
-        <link rel="stylesheet" href="./src/reset.css" />
+        <link rel="stylesheet" href="./src/css/reset.css" />
         <link rel="stylesheet" href="./dist/style.css" />
 
         <title>Frontend Mentor | Tip calculator app</title>
     </head>
     <body>
         <div class="page-wrapper">
+            <div class="logo">
+                <img
+                    src="./src/assets/img/logo.svg"
+                    alt="Splitter"
+                    class="logo__img"
+                />
+            </div>
             <div class="calc-wrapper">
-                <div class="logo">
-                    <img
-                        src="./src/assets/img/logo.svg"
-                        alt="Splitter"
-                        class="logo__img"
-                    />
-                </div>
                 <div class="calc-input-wrapper">
                     <form class="calc-input">
-                        <label class="calc-input__bill-label" for="bill"
-                            >Bill</label
+                        <label class="calc-input__label calc-input__label-bill" for="bill"
+                            >Bill<br></label
                         >
                         <input
                             type="number"
-                            class="calc-input__bill-input"
+                            class="calc-input__input calc-input__input-bill"
                             id="bill"
                             name="bill"
                             min="1"
                             max="10000"
+                            placeholder="0,00"
                         />
                         <fieldset class="calc-input__tip-percentage">
-                            <legend class="calc-input__select">Select Tip %</legend>
-                            <input
-                                class="calc-input__selection"
-                                type="radio"
-                                name="tip-percentage"
-                                value="5"
-                            />5%</input>
-                            <input
-                                class="calc-input__selection"
-                                type="radio"
-                                name="tip-percentage"
-                                value="10"
-                            />10%</input>
-                            <input
-                                class="calc-input__selection"
-                                type="radio"
-                                name="tip-percentage"
-                                value="15"
-                            />15%</input>
-                            <input
-                                class="calc-input__selection"
-                                type="radio"
-                                name="tip-percentage"
-                                value="20"
-                            />20%</input>
-                            <input
-                                class="calc-input__selection"
-                                type="radio"
-                                name="tip-percentage"
-                                value="25"
-                            />25%</input>
-                            <input
-                                class="calc-input__selection"
-                                type="radio"
-                                name="tip-percentage"
-                            />Custom</input>
+                            <legend class="calc-input__label calc-input__select">Select Tip %</legend>
+                                <div class="calc-input__select-grid">
+                                    <input
+                                        class="calc-input__selection"
+                                        type="radio"
+                                        id="tip-percentage-5"
+                                        name="tip-percentage"
+                                        value="5"
+                                        /></input>
+                                    <label for="tip-percentage-5" class="btn btn--radio calc-input__selection-btn">5%</label>
+                                    <input
+                                        class="calc-input__selection"
+                                        type="radio"
+                                        id="tip-percentage-10"
+                                        name="tip-percentage"
+                                        value="10"
+                                    /></input>
+                                    <label for="tip-percentage-10" class="btn btn--radio calc-input__selection-btn">10%</label>
+                                    <input
+                                        class="calc-input__selection"
+                                        type="radio"
+                                        id="tip-percentage-15"
+                                        name="tip-percentage"
+                                        value="15"
+                                    /></input>
+                                    <label for="tip-percentage-15" class="btn btn--radio calc-input__selection-btn">15%</label>
+                                    <input
+                                        class="calc-input__selection"
+                                        type="radio"
+                                        id="tip-percentage-20"
+                                        name="tip-percentage"
+                                        value="20"
+                                    /></input>
+                                    <label for="tip-percentage-20" class="btn btn--radio calc-input__selection-btn">20%</label>
+                                    <input
+                                        class="calc-input__selection"
+                                        type="radio"
+                                        id="tip-percentage-25"
+                                        name="tip-percentage"
+                                        value="25"
+                                    /></input>
+                                    <label for="tip-percentage-25" class="btn btn--radio calc-input__selection-btn">25%</label>
+                                    <input type="number" class="btn calc-input__textarea btn--custom" id="input-custom" name="input-custom" min="1"
+                                    max="100" placeholder="Custom">
+                                
+                                </div>
                         </fieldset>
-                        <label class="calc-input__people-label" for="people"
-                            >Number of People</label
-                        >
+                        <label class="calc-input__label calc-input__label-people" for="people"
+                            >Number of People</label>
                         <input
                             type="number"
-                            class="calc-input__people-input"
+                            class="calc-input__input calc-input__input-people"
                             id="people"
                             name="people"
                             min="1"
                             max="50"
+                            placeholder="0"
                         />
-                    </form>
+                     </form>
                 </div>
     
                 <div class="calc-output-wrapper">
@@ -120,9 +131,9 @@
                                 / person
                             </p>
                         </div>
-                        <p class="calc-output__total-amount">$0</p>
+                        <p class="calc-output__amount">$0</p>
                     </div>
-                    <button class="calc-output__btn-reset btn">Reset</button>
+                    <button class="btn btn--reset calc-output__reset">Reset</button>
                 </div>
             </div>
     

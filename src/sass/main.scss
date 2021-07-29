@@ -1,5 +1,5 @@
-@use "variables";
-
-body {
-    background: variables.$color-primary;
-}
+@use "variables" as v;
+@use "base";
+@use "components";
+@use 'layout';
+@use "frontFooter";
