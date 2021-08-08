@@ -24,6 +24,7 @@
         "@babel/core": "^7.14.8",
         "@babel/preset-env": "^7.14.8",
         "babel-loader": "^8.2.2",
+        "copy-webpack-plugin": "^9.0.1",
         "css-loader": "^6.2.0",
         "dart-sass": "^1.25.0",
         "html-webpack-plugin": "^5.3.2",
