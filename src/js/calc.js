@@ -11,9 +11,9 @@ export default class Calculator {
         const billInput = document.querySelector(".calc-input__input-bill");
         const bill = billInput.value;
         if (bill == NaN || people == "undefined") {
-            return (bill = 0);
+            return 0;
         } else {
-            return +bill;
+            return bill;
         }
     }
 
@@ -24,8 +24,7 @@ export default class Calculator {
         );
         if (inputChecked) {
             const pct = inputChecked.getAttribute("value");
-            console.log(`input checked exist and is ${pct}`);
-            return +pct;
+            return pct;
         } else {
             return 0;
         }
@@ -37,7 +36,7 @@ export default class Calculator {
         if (people === "") {
             return 0;
         } else {
-            return +people;
+            return people;
         }
     }
 
@@ -47,12 +46,9 @@ export default class Calculator {
     }
 
     calcTip(bill, pct, people) {
-        console.log(bill, pct, people);
         if (pct === 0 || people === 0) {
-            console.log("returning tip 0");
             return 0;
         } else {
-            console.log(bill, pct, people);
             const tip = (bill * pct) / 100 / people;
             const tipRound = Math.round(tip * 100) / 100;
             return tipRound;
@@ -60,7 +56,6 @@ export default class Calculator {
     }
 
     calcTotal(bill, pct, people) {
-        console.log(bill, pct, people);
         if (pct === 0 && people > 0) {
             const total = +bill / +people;
             const totalRound = Math.round(total * 100) / 100;

@@ -24,7 +24,6 @@ function init() {
     );
     const customInputBtn = document.querySelector(".calc-input__textarea");
     customInputBtn.addEventListener("keyup", () => {
-        console.log("change in textarea");
         calculator.customButton();
         const value = customInputBtn.value;
         calculate(calculator, value);
