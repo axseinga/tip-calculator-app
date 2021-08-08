@@ -17,18 +17,6 @@ export default class Calculator {
         }
     }
 
-    getCustomPct() {
-        const radioCustomInput = document.querySelector(
-            ".calc-input__textarea"
-        );
-        console.log("getting custom pct");
-        radioCustomInput.addEventListener("keyup", function () {
-            const pct = radioCustomInput.value;
-            console.log(pct);
-            return +pct;
-        });
-    }
-
     getPct() {
         const radioInputs = document.querySelectorAll(".calc-input__selection");
         const [inputChecked] = Array.from(radioInputs).filter(
@@ -40,9 +28,6 @@ export default class Calculator {
             return +pct;
         } else {
             return 0;
-            /*console.log("no input checked");
-            this.customButton();
-            return this.getCustomPct();*/
         }
     }
 

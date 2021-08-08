@@ -10,23 +10,30 @@ function init() {
     resetButton.addEventListener("click", calculator.reset);
     const billBtn = document.querySelector(".calc-input__input-bill");
     billBtn.addEventListener("keyup", () => {
-        calculate(calculator);
+        calculate(calculator, calculator.getPct());
     });
     const peopleBtn = document.querySelector(".calc-input__input-people");
     peopleBtn.addEventListener("keyup", () => {
-        calculate(calculator);
+        calculate(calculator, calculator.getPct());
     });
-    const radioInputs = document.querySelectorAll(".calc-input__selection");
-    Array.from(radioInputs).forEach((input) =>
+    const radioInputsBtns = document.querySelectorAll(".calc-input__selection");
+    Array.from(radioInputsBtns).forEach((input) =>
         input.addEventListener("click", () => {
-            calculate(calculator);
+            calculate(calculator, calculator.getPct());
         })
     );
+    const customInputBtn = document.querySelector(".calc-input__textarea");
+    customInputBtn.addEventListener("keyup", () => {
+        console.log("change in textarea");
+        calculator.customButton();
+        const value = customInputBtn.value;
+        calculate(calculator, value);
+    });
 }
 
-function calculate(calculator) {
+function calculate(calculator, calcPctFn) {
     const bill = calculator.getBill();
-    const pct = calculator.getPct();
+    const pct = calcPctFn;
     const people = calculator.getPeople();
     const tip = calculator.calcTip(bill, pct, people);
     const total = calculator.calcTotal(bill, pct, people);
