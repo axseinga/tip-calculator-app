@@ -1,57 +1,58 @@
 export default class Calculator {
     getTotal() {
         const bill = this.getBill();
-        //const pct = this.getPct();
+        const pct = this.getPct();
         const people = this.getPeople();
-        const total = this.calcTotal(bill, 20, people);
+        const total = this.calcTotal(bill, pct, people);
         this.displayTotal(total);
     }
 
     getBill() {
         const billInput = document.querySelector(".calc-input__input-bill");
         const bill = billInput.value;
-        console.log(bill);
-        return bill;
+        if (bill == NaN || people == "undefined") {
+            return (bill = 0);
+        } else {
+            return +bill;
+        }
     }
 
     getCustomPct() {
         const radioCustomInput = document.querySelector(
             ".calc-input__textarea"
         );
+        console.log("getting custom pct");
         radioCustomInput.addEventListener("keyup", function () {
             const pct = radioCustomInput.value;
             console.log(pct);
-            return pct;
+            return +pct;
         });
     }
 
     getPct() {
-        const fieldset = document.querySelector(".calc-input__tip-percentage");
-        fieldset.addEventListener("click", function (e) {
-            const target = e.target;
-            if (target.tagName === "INPUT") {
-                const pct = target.getAttribute("value");
-                if (pct === null) {
-                    console.log(this);
-                    getCustomPct();
-                }
-                if (pct !== null) {
-                    console.log(pct);
-                    return pct;
-                }
-            }
-        });
+        const radioInputs = document.querySelectorAll(".calc-input__selection");
+        const [inputChecked] = Array.from(radioInputs).filter(
+            (input) => input.checked === true
+        );
+        if (inputChecked) {
+            const pct = inputChecked.getAttribute("value");
+            console.log(`input checked exist and is ${pct}`);
+            return +pct;
+        } else {
+            return 0;
+            /*console.log("no input checked");
+            this.customButton();
+            return this.getCustomPct();*/
+        }
     }
 
     getPeople() {
         const peopleInput = document.querySelector(".calc-input__input-people");
         const people = peopleInput.value;
-        if (people <= 0) {
-            console.log("za malo ludzi");
-            return;
+        if (people === "") {
+            return 0;
         } else {
-            console.log(people);
-            return people;
+            return +people;
         }
     }
 
@@ -61,15 +62,39 @@ export default class Calculator {
     }
 
     calcTip(bill, pct, people) {
-        const tip = (bill * pct) / 100 / people;
-        console.log(tip);
-        return tip;
+        console.log(bill, pct, people);
+        if (pct === 0 || people === 0) {
+            console.log("returning tip 0");
+            return 0;
+        } else {
+            console.log(bill, pct, people);
+            const tip = (bill * pct) / 100 / people;
+            const tipRound = Math.round(tip * 100) / 100;
+            return tipRound;
+        }
     }
 
     calcTotal(bill, pct, people) {
-        const total = bill / people + this.calcTip(bill, pct, people);
-        console.log(total);
-        return total;
+        console.log(bill, pct, people);
+        if (pct === 0 && people > 0) {
+            const total = +bill / +people;
+            const totalRound = Math.round(total * 100) / 100;
+            return totalRound;
+        }
+        if (people === 0 && pct > 0) {
+            const total = 0;
+            return total;
+        }
+
+        if (pct === 0 && people === 0) {
+            const total = 0;
+            return total;
+        } else {
+            const tip = this.calcTip(+bill, +pct, +people);
+            const total = bill / people + +tip;
+            const totalRound = Math.round(total * 100) / 100;
+            return totalRound;
+        }
     }
 
     convertToDisplay(num) {

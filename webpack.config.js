@@ -20,6 +20,8 @@ module.exports = {
         }),
     ],
 
+    devtool: "inline-source-map",
+
     module: {
         rules: [
             {
