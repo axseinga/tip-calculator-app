@@ -1,4 +1,14 @@
 export default class Calculator {
+    calculate(calcPctFn) {
+        const bill = this.getBill();
+        const pct = calcPctFn;
+        const people = this.getPeople();
+        const tip = this.calcTip(bill, pct, people);
+        const total = this.calcTotal(bill, pct, people);
+        this.displayTip(tip);
+        this.displayTotal(total);
+    }
+
     getTotal() {
         const bill = this.getBill();
         const pct = this.getPct();
@@ -25,8 +35,15 @@ export default class Calculator {
         if (inputChecked) {
             const pct = inputChecked.getAttribute("value");
             return pct;
-        } else {
-            return 0;
+        }
+        if (!inputChecked) {
+            const fieldset = document.querySelector(
+                ".calc-input__tip-percentage"
+            );
+            const custom = fieldset.lastElementChild.lastElementChild.value;
+            if (custom !== "") {
+                return custom;
+            } else return 0;
         }
     }
 
