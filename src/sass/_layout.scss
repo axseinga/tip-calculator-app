@@ -66,10 +66,14 @@
         background-image: url(../assets/img/icon-dollar.svg);
         background-repeat: no-repeat;
         position: absolute;
-        top: 38px;
+        top: 44px;
         left: 15px;
         height: 2rem;
         width: 2rem;
+
+        @include m.respond(tablet) {
+            top: 38px;
+        }
     }
 
     &__input {
@@ -152,16 +156,18 @@
         background-image: url(../assets/img/icon-person.svg);
         background-repeat: no-repeat;
         position: absolute;
-        top: 38px;
+        top: 44px;
         left: 15px;
         height: 2rem;
         width: 2rem;
+
+        @include m.respond(tablet) {
+            top: 38px;
+        }
     }
 }
 
 input[type="radio"]:checked + label,
-/*input[type="radio"]:active + label,
-input[type="radio"]:focus + label,*/
 input[type="radio"]:hover + label {
     background-color: v.$color-primary;
     color: v.$color-primary-dark;
