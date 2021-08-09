@@ -16,8 +16,6 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 -   [Author](#author)
 -   [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -31,6 +29,8 @@ Users should be able to:
 ### Screenshot
 
 ![](./design/screenshot.png)
+
+![](./design/screenshot-mobile.png)
 
 ### Links
 
@@ -74,6 +74,8 @@ I am planning to move to testing and React and then start coding projects from F
 -   [How to configure Webpack from Scratch for a basic website](https://dev.to/antonmelnyk/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5) - Very good article to start from when configuring Webpack for a project. Unfortunately, it does not cover Dart Sass as the article was written at the beginning of 2019.
 -   [Dart Sass](https://sass-lang.com/dart-sass) - documentation.
 -   [Stop using @import with Sass | @use and @forward explained](https://www.youtube.com/watch?v=CR-a8upNjJ0) - by Kevin Powell.
+-   [Stackoverflow: Why before & after pseudo elements does not work on an input field](https://stackoverflow.com/questions/2587669/can-i-use-a-before-or-after-pseudo-element-on-an-input-field) - if anyone wonders.
+-   [Customize radio buttons](https://markheath.net/post/customize-radio-button-css)
 
 ## Author
 
