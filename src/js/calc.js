@@ -1,26 +1,18 @@
 export default class Calculator {
     calculate(calcPctFn) {
-        const bill = this.getBill();
-        const pct = calcPctFn;
-        const people = this.getPeople();
+        const bill = Number(this.getBill());
+        const pct = Number(calcPctFn);
+        const people = Number(this.getPeople());
         const tip = this.calcTip(bill, pct, people);
         const total = this.calcTotal(bill, pct, people);
         this.displayTip(tip);
         this.displayTotal(total);
     }
 
-    getTotal() {
-        const bill = this.getBill();
-        const pct = this.getPct();
-        const people = this.getPeople();
-        const total = this.calcTotal(bill, pct, people);
-        this.displayTotal(total);
-    }
-
     getBill() {
         const billInput = document.querySelector(".calc-input__input-bill");
         const bill = billInput.value;
-        if (bill == NaN || people == "undefined") {
+        if (bill === "" || bill === NaN || bill === "undefined") {
             return 0;
         } else {
             return bill;
@@ -73,6 +65,16 @@ export default class Calculator {
     }
 
     calcTotal(bill, pct, people) {
+        if (bill === 0) {
+            const total = 0;
+            return total;
+        }
+
+        if (people === 0 || people === "") {
+            const total = +bill;
+            return total;
+        }
+
         if (pct === 0 && people > 0) {
             const total = +bill / +people;
             const totalRound = Math.round(total * 100) / 100;
