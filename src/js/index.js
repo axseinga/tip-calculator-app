@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
     const calculator = new Calculator();
-    const resetButton = document.querySelector(".calc-output__reset");
+    /*const resetButton = document.querySelector(".calc-output__reset");
     resetButton.addEventListener("click", calculator.reset);
     const billBtn = document.querySelector(".calc-input__input-bill");
-    billBtn.addEventListener("keyup", () => {
+    billBtn.addEventListener("input", () => {
         calculator.calculate(calculator.getPct());
     });
     const peopleBtn = document.querySelector(".calc-input__input-people");
-    peopleBtn.addEventListener("keyup", () => {
+    peopleBtn.addEventListener("input", () => {
         calculator.calculate(calculator.getPct());
     });
     const radioInputsBtns = document.querySelectorAll(".calc-input__selection");
@@ -23,9 +23,9 @@ function init() {
         })
     );
     const customInputBtn = document.querySelector(".calc-input__textarea");
-    customInputBtn.addEventListener("keyup", () => {
+    customInputBtn.addEventListener("input", () => {
         calculator.customButton();
         const value = customInputBtn.value;
         calculator.calculate(value);
-    });
+    });*/
 }

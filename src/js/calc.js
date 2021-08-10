@@ -1,4 +1,74 @@
 export default class Calculator {
+    constructor() {
+        if (!this.vars()) return false;
+        this.setupEvents();
+    }
+
+    vars() {
+        this.selectors = {
+            resetBtn: ".calc-output__reset",
+            billBtn: ".calc-input__input-bill",
+            peopleBtn: ".calc-input__input-people",
+            radioInputsBtns: ".calc-input__selection",
+            customInputBtn: ".calc-input__textarea",
+            fieldset: ".calc-input__tip-percentage",
+            tipAmountDisplay: ".calc-output__tip-display",
+            totalAmountDisplay: ".calc-output__total-display",
+        };
+
+        this.resetBtn = document.querySelector(this.selectors.resetBtn);
+        this.billBtn = document.querySelector(this.selectors.billBtn);
+        this.peopleBtn = document.querySelector(this.selectors.peopleBtn);
+        this.radioInputsBtns = document.querySelectorAll(
+            this.selectors.radioInputsBtns
+        );
+        this.customInputBtn = document.querySelector(
+            this.selectors.customInputBtn
+        );
+        this.fieldset = document.querySelector(this.selectors.fieldset);
+        this.tipAmountDisplay = document.querySelector(
+            this.selectors.tipAmountDisplay
+        );
+        this.totalAmountDisplay = document.querySelector(
+            this.selectors.totalAmountDisplay
+        );
+
+        if (
+            !this.resetBtn ||
+            !this.billBtn ||
+            !this.peopleBtn ||
+            !this.radioInputsBtns ||
+            !this.customInputBtn ||
+            !this.fieldset ||
+            !this.tipAmountDisplay ||
+            !this.totalAmountDisplay
+        )
+            return false;
+        return true;
+    }
+
+    setupEvents() {
+        this.resetBtn.addEventListener("click", () => {
+            this.reset();
+        });
+        this.billBtn.addEventListener("input", () => {
+            this.calculate(this.getPct());
+        });
+        this.peopleBtn.addEventListener("input", () => {
+            this.calculate(this.getPct());
+        });
+        Array.from(this.radioInputsBtns).forEach((input) =>
+            input.addEventListener("click", () => {
+                this.calculate(this.getPct());
+            })
+        );
+        this.customInputBtn.addEventListener("input", () => {
+            this.customButton();
+            const value = this.customInputBtn.value;
+            this.calculate(value);
+        });
+    }
+
     calculate(calcPctFn) {
         const bill = Number(this.getBill());
         const pct = Number(calcPctFn);
@@ -10,8 +80,7 @@ export default class Calculator {
     }
 
     getBill() {
-        const billInput = document.querySelector(".calc-input__input-bill");
-        const bill = billInput.value;
+        const bill = this.billBtn.value;
         if (bill === "" || bill === NaN || bill === "undefined") {
             return 0;
         } else {
@@ -20,8 +89,7 @@ export default class Calculator {
     }
 
     getPct() {
-        const radioInputs = document.querySelectorAll(".calc-input__selection");
-        const [inputChecked] = Array.from(radioInputs).filter(
+        const [inputChecked] = Array.from(this.radioInputsBtns).filter(
             (input) => input.checked === true
         );
         if (inputChecked) {
@@ -29,10 +97,8 @@ export default class Calculator {
             return pct;
         }
         if (!inputChecked) {
-            const fieldset = document.querySelector(
-                ".calc-input__tip-percentage"
-            );
-            const custom = fieldset.lastElementChild.lastElementChild.value;
+            const custom =
+                this.fieldset.lastElementChild.lastElementChild.value;
             if (custom !== "") {
                 return custom;
             } else return 0;
@@ -40,8 +106,7 @@ export default class Calculator {
     }
 
     getPeople() {
-        const peopleInput = document.querySelector(".calc-input__input-people");
-        const people = peopleInput.value;
+        const people = this.peopleBtn.value;
         if (people === "") {
             return 0;
         } else {
@@ -50,8 +115,7 @@ export default class Calculator {
     }
 
     customButton() {
-        const radioInputs = document.querySelectorAll(".calc-input__selection");
-        radioInputs.forEach((input) => (input.checked = false));
+        this.radioInputsBtns.forEach((input) => (input.checked = false));
     }
 
     calcTip(bill, pct, people) {
@@ -105,38 +169,20 @@ export default class Calculator {
 
     displayTip(tip) {
         const tipDisplay = this.convertToDisplay(tip);
-        const tipAmountDisplay = document.querySelector(
-            ".calc-output__tip-display"
-        );
-        tipAmountDisplay.innerText = `$${tipDisplay}`;
+        this.tipAmountDisplay.innerText = `$${tipDisplay}`;
     }
 
     displayTotal(total) {
         const totalDisplay = this.convertToDisplay(total);
-        const totalAmountDisplay = document.querySelector(
-            ".calc-output__total-display"
-        );
-        totalAmountDisplay.innerText = `$${totalDisplay}`;
+        this.totalAmountDisplay.innerText = `$${totalDisplay}`;
     }
 
     reset() {
-        const billInput = document.querySelector(".calc-input__input-bill");
-        const radioCustomInput = document.querySelector(
-            ".calc-input__textarea"
-        );
-        const peopleInput = document.querySelector(".calc-input__input-people");
-        const radioInputs = document.querySelectorAll(".calc-input__selection");
-        const totalAmountDisplay = document.querySelector(
-            ".calc-output__total-display"
-        );
-        const tipAmountDisplay = document.querySelector(
-            ".calc-output__tip-display"
-        );
-        billInput.value = "";
-        radioInputs.forEach((input) => (input.checked = false));
-        radioCustomInput.value = "";
-        peopleInput.value = "";
-        tipAmountDisplay.innerText = "$0.00";
-        totalAmountDisplay.innerText = "$0.00";
+        this.billBtn.value = "";
+        this.radioInputsBtns.forEach((input) => (input.checked = false));
+        this.customInputBtn.value = "";
+        this.peopleBtn.value = "";
+        this.tipAmountDisplay.innerText = "$0.00";
+        this.totalAmountDisplay.innerText = "$0.00";
     }
 }

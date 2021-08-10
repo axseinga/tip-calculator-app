@@ -85,4 +85,4 @@ I am planning to move to testing and React and then start coding projects from F
 
 ## Acknowledgments
 
-Thanks to my [Mentor](https://devmentor.pl/) for helping me out with all Webpacks problems!
+Thanks to my [Mentor](https://devmentor.pl/) for helping me out with all Webpacks problems! Big thanks to [Tediko](https://www.frontendmentor.io/profile/tediko) for all comments and helping me out with refactoring the code! :)
